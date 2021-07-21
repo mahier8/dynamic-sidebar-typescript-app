@@ -22,10 +22,14 @@ const SidebarLink = styled(Link)`
   }
 `;
 
-const SidebarLabel = styled.span``;
+const Submenu: FC<SidebarLinkProps> = ({ item }) => {
+  const [subnav, setSubnav] = useState(false);
+  const showSubnav = () => setSubnav(!subnav);
 
-const IconOuter = styled.span`
-  background-color: #1f4782;
+  const [changeColor, setChangeColor] = useState('white');
+
+  const IconOuter = styled.span`
+  background-color: ${ changeColor };
   border-radius: 5px;
   padding: 10px;
   width: 44px;
@@ -34,16 +38,12 @@ const IconOuter = styled.span`
   top: 8px;
 `;
 
-const Submenu: FC<SidebarLinkProps> = ({ item }) => {
-  const [subnav, setSubnav] = useState(false);
-  const showSubnav = () => setSubnav(!subnav);
-
   return (
     <>
       <SidebarLink to={item.path} onClick={showSubnav}>
-        <IconOuter>
+        <IconOuter onClick={() => setChangeColor('#1F4782')}>
+          
           {item.icon}
-          <SidebarLabel>{item.title}</SidebarLabel>
         </IconOuter>
       </SidebarLink>
     </>

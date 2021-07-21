@@ -83,7 +83,7 @@ const HorizontalDivider = styled.hr`
 
 const SideBarInfo: FC = () => {
     return (
-        <IconContext.Provider value={{ color: "green"}}>
+        <IconContext.Provider value={{ color: "#59AC64"}}>
         <div>
         <InfoParagraph>
           <GiGolfFlag /> Location 1
